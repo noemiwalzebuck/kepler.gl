@@ -108,30 +108,9 @@ const ExportConfigModal = ({
           </div>
           <div className="selection">
             <div className="viewer">
-          {/*
-            <AceEditor
-              mode="json"
-              theme="monokai"
-              name="kepler.gl-config"
-              fontSize={9}
-              readOnly={true}
-              wrapEnabled={true}
-              height="280px"
-              showPrintMargin={true}
-              showGutter={true}
-              highlightActiveLine={false}
-              value={JSON.stringify(config, null, 2)}
-              setOptions={{
-                enableBasicAutocompletion: false,
-                enableLiveAutocompletion: true,
-                enableSnippets: false,
-                showLineNumbers: true,
-                tabSize: 2
-              }}/>
-            */}
                 <JSONPretty id="json-pretty" json={config}></JSONPretty>
-              </div>
             </div>
+          </div>
         </StyledExportConfigSection>
         <StyledExportConfigSection>
           <div className="description">
