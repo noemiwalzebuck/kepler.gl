@@ -56,8 +56,12 @@ import {
   mergeLayerBlending
 } from './vis-state-merger';
 
-import {LayerClasses, Layer} from 'layers';
+// Do not load layerClasses on the server
+const {LayerClasses, Layer}  = isBrowser ? require('layers') : {
+  LayerClasses: {}, Layer: null
+};
 
+import isBrowser from 'utils/is-browser';
 // react-palm
 // disable capture exception for react-palm call to withTasks
 disableStackCapturing();
@@ -434,12 +438,12 @@ export const removeFilterUpdater = (state, action) => {
 
 export const addLayerUpdater = (state, action) => {
   const defaultDataset = Object.keys(state.datasets)[0];
-  const newLayer = new Layer({
+  const newLayer = Layer ? new Layer({
     isVisible: true,
     isConfigActive: true,
     dataId: defaultDataset,
     ...action.props
-  });
+  }) : {};
 
   return {
     ...state,
