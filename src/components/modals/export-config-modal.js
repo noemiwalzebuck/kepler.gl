@@ -108,7 +108,7 @@ const ExportConfigModal = ({
           </div>
           <div className="selection">
             <div className="viewer">
-                <JSONPretty id="json-pretty" json={config}></JSONPretty>
+                <JSONPretty id="json-pretty" json={config}/>
             </div>
           </div>
         </StyledExportConfigSection>

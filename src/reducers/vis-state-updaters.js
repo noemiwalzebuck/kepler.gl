@@ -56,12 +56,13 @@ import {
   mergeLayerBlending
 } from './vis-state-merger';
 
+import isBrowser from 'utils/is-browser';
+
 // Do not load layerClasses on the server
 const {LayerClasses, Layer}  = isBrowser ? require('layers') : {
   LayerClasses: {}, Layer: null
 };
 
-import isBrowser from 'utils/is-browser';
 // react-palm
 // disable capture exception for react-palm call to withTasks
 disableStackCapturing();
