@@ -57,11 +57,11 @@ import {
 } from './vis-state-merger';
 
 import isBrowser from 'utils/is-browser';
+import isTesting from 'utils/is-testing';
 
-// Do not load layerClasses on the server
-const {LayerClasses, Layer}  = isBrowser ? require('layers') : {
-  LayerClasses: {}, Layer: null
-};
+// do not load layerClass in server rendering
+const  {LayerClasses, Layer} = isBrowser || isTesting ?
+  require('layers') : {LayerClasses: {}, Layer: null};
 
 // react-palm
 // disable capture exception for react-palm call to withTasks
